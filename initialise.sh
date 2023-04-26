@@ -17,5 +17,10 @@ git clone https://github.com/AlexChapple/python-wifi-connect.git
 git config --global credential.helper store
 git clone https://github.com/AlexChapple/ChappleFrame.git
 
+wget https://unofficial-builds.nodejs.org/download/release/v18.16.0/node-v18.16.0-linux-armv6l.tar.xz
+tar xvfJ node-v18.16.0-linux-armv6l.tar.xz
+sudo cp -R node-v18.16.0-linux-armv6l/* /usr/local
+rm -rf node-*
+
 sudo raspi-config
 sudo reboot
