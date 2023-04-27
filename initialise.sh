@@ -22,5 +22,8 @@ tar xvfJ node-v18.16.0-linux-armv6l.tar.xz
 sudo cp -R node-v18.16.0-linux-armv6l/* /usr/local
 rm -rf node-*
 
+cd ChappleFrame/
+npm install 
+
 sudo raspi-config
 sudo reboot
