@@ -11,6 +11,7 @@ sudo apt-get install python3-pil
 sudo apt-get install python3-numpy
 sudo pip3 install RPi.GPIO
 sudo pip3 install spidev
+sudo pip3 install qrcode
 
 git clone https://github.com/AlexChapple/python-wifi-connect.git
 
