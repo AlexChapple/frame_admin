@@ -58,7 +58,7 @@ function manageQueue() {
     pythonProcessRunning = true 
     var updateFramePythonProcess
 
-    while (queueList.length > 0) {
+    while (queueList.length > 0 && !pythonProcessRunning) {
     
         if (queueList[0] == "1") {
             console.log("updating frame to 1")
