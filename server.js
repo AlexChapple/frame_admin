@@ -11,6 +11,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 var queueList = []
 var pythonProcessRunning = false 
+var queueOn = false 
 
 /*
     Server functions start here
@@ -28,19 +29,22 @@ app.post("/", (req, res) => {
     if (req.body.hasOwnProperty("first")) {
         queueList.push("1")
         console.log(queueList)
-        if (!pythonProcessRunning) {
+        if (!queueOn) {
+            queueOn = true 
             manageQueue()
         }
     } else if (req.body.hasOwnProperty("second")) {
         queueList.push("2")
         console.log(queueList)
-        if (!pythonProcessRunning) {
+        if (!queueOn) {
+            queueOn = true 
             manageQueue()
         }
     } else if (req.body.hasOwnProperty("third")) {
         queueList.push("3")
         console.log(queueList)
-        if (!pythonProcessRunning) {
+        if (!queueOn) {
+            queueOn = true 
             manageQueue()
         }
     } else {
@@ -91,7 +95,7 @@ function manageQueue() {
     
     }
 
-    pythonProcessRunning = false 
+    queueOn = false 
 
 }
 
