@@ -43,6 +43,8 @@ app.post("/", (req, res) => {
     } else {
         console.log("Issue identifying button types")
     }
+
+    res.render("index")
     
 })
 
