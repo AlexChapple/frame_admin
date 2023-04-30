@@ -52,6 +52,8 @@ app.post("/", (req, res) => {
 })
 
 function manageQueue() {
+    
+    console.log("Manage queue started")
 
     pythonProcessRunning = true 
     var updateFramePythonProcess
@@ -59,10 +61,13 @@ function manageQueue() {
     while (queueList.length > 0) {
     
         if (queueList[0] == "1") {
+            console.log("updating frame to 1")
             updateFramePythonProcess = spawn('python3', ["./updateFrame1.py"])
         } else if (queueList[0] == "2") {
+            console.log("updating frame to 2")
             updateFramePythonProcess = spawn('python3', ["./updateFrame2.py"])
         } else if (queueList[0] == "3") {
+            console.log("updating frame to 3")
             updateFramePythonProcess = spawn('python3', ["./updateFrame3.py"])
         } else {
             console.log("Couldn't identify python process type")
