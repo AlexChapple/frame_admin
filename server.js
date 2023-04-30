@@ -91,7 +91,7 @@ function manageQueue() {
             queueList.shift()
             pythonProcessRunning = false 
             console.log("Queue is now: ", queueList)
-            if (queueList.length > 1) {
+            if (queueList.length > 0) {
                 manageQueue()
             }
         })
