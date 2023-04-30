@@ -27,16 +27,19 @@ app.post("/", (req, res) => {
     // When the button is clicked, we change the photo on the screen 
     if (req.body.hasOwnProperty("first")) {
         queueList.push("1")
+        console.log(queueList)
         if (!pythonProcessRunning) {
             manageQueue()
         }
     } else if (req.body.hasOwnProperty("second")) {
         queueList.push("2")
+        console.log(queueList)
         if (!pythonProcessRunning) {
             manageQueue()
         }
     } else if (req.body.hasOwnProperty("third")) {
         queueList.push("3")
+        console.log(queueList)
         if (!pythonProcessRunning) {
             manageQueue()
         }
@@ -76,6 +79,7 @@ function manageQueue() {
     
         updateFramePythonProcess.on('exit', function () {
             queueList.shift()
+            console.log("Queue is now: ", queueList)
         })
     
     }
