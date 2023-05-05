@@ -127,15 +127,25 @@ class EPD:
         epdconfig.spi_writebyte2(data)
         epdconfig.digital_write(self.cs_pin, 1)
 
+    # def ReadBusy(self):
+    #     logger.debug("e-Paper busy")
+    #     self.send_command(0x71)
+    #     busy = epdconfig.digital_read(self.busy_pin)
+    #     while(busy == 0):
+    #         self.send_command(0x71)
+    #         busy = epdconfig.digital_read(self.busy_pin)
+    #     epdconfig.delay_ms(20)
+    #     logger.debug("e-Paper busy release")
+
     def ReadBusy(self):
-        logger.debug("e-Paper busy")
-        self.send_command(0x71)
-        busy = epdconfig.digital_read(self.busy_pin)
-        while(busy == 0):
-            self.send_command(0x71)
-            busy = epdconfig.digital_read(self.busy_pin)
-        epdconfig.delay_ms(20)
-        logger.debug("e-Paper busy release")
+        logging.debug("e-Paper busy")
+        self.send_command(0x71);
+        iter = 0;
+        while(epdconfig.digital_read(self.busy_pin) == 0 and iter < 100):
+            self.send_command(0x71);
+        epdconfig.delay_ms(100)
+        iter+=1
+        logging.debug("e-Paper busy release")
         
     def SetLut(self, lut_vcom, lut_ww, lut_bw, lut_wb, lut_bb):
         self.send_command(0x20)
